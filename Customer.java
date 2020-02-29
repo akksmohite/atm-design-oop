@@ -1,0 +1,53 @@
+package atm;
+
+public class Customer {
+
+	protected String name;
+	protected int cardNumber;
+	protected int PIN;
+	protected int balance;
+
+	public Customer(String name, int cardNumber, int pIN, int balance) {
+		super();
+		this.name = name;
+		this.cardNumber = cardNumber;
+		PIN = pIN;
+		this.balance = balance;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + PIN;
+		result = prime * result + balance;
+		result = prime * result + cardNumber;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (PIN != other.PIN)
+			return false;
+		if (balance != other.balance)
+			return false;
+		if (cardNumber != other.cardNumber)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
+	
+}
